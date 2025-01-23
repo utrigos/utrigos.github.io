@@ -10,315 +10,343 @@
     <title>Dr. Trigos-Raczkowski</title>
 
     <style>
-        :root {
-            --primary-color: rgb(10, 71, 51);
-            --link-color: rgb(34, 177, 46);
-            --text-color: #2C2C2C;
-            --bg-color: #cee9ce;
-        }
-        
-        body {
-            font-family: "Caslon", "EB Garamond", Georgia, serif;
-            line-height: 1.6;
-            margin-left: 5%;
-            margin-right: 5%;
-            padding: 0;
-            color: var(--text-color);
-            background: var(--bg-color);
-        }
+                        :root {
+                            --primary-color: rgb(10, 71, 51);
+                            --link-color: rgb(34, 177, 46);
+                            --text-color: #2C2C2C;
+                            --bg-color: #cee9ce;
+                        }
+                        
+                        body {
+                            font-family: "Caslon", "EB Garamond", Georgia, serif;
+                            line-height: 1.6;
+                            margin-left: 5%;
+                            margin-right: 5%;
+                            padding: 0;
+                            color: var(--text-color);
+                            background: var(--bg-color);
+                        }
 
-        .header {
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+                        .header {
+                            padding: 2rem 5%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
 
-        .site-title {
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: opacity 0.3s;
-            cursor: pointer;
-        }
-        .site-subtitle {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-color);  /* This will make it black like your other text */
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
+                        .site-title {
+                            font-size: 1.75rem;
+                            font-weight: 400;
+                            color: var(--primary-color);
+                            text-decoration: none;
+                            transition: opacity 0.3s;
+                            cursor: pointer;
+                        }
+                        .site-subtitle {
+                            font-size: 1.5rem;
+                            font-weight: 400;
+                            color: var(--text-color);  /* This will make it black like your other text */
+                            text-decoration: none;
+                            transition: opacity 0.3s;
+                        }
 
-        .site-title:hover {
-            opacity: 0.8;
-        }
+                        .site-title:hover {
+                            opacity: 0.8;
+                        }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
+                        nav a {
+                            color: var(--text-color);
+                            text-decoration: none;
+                            font-size: 1rem;
+                            transition: color 0.3s;
+                            cursor: pointer;
+                        }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-
-
-        .content {
-            max-width: 1200px;
-            margin: 0 5%;
-            padding: 1rem 5%;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .content.active {
-            opacity: 1;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .profile {
-    display: flex;
-    gap: 4rem;
-    margin-bottom: 2rem;
-}
-
-.profile-image {
-  width: 275px; /* Adjust size as needed */
-  height: 400px;
-  border-radius: 75%;
-  overflow: hidden;
-  object-fit: cover;
-  flex-shrink: 0; /* Prevents image from shrinking */
-  margin-top: 1em;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.5rem 0;
-}
-
-.research-section {
-    margin-top: 1rem;
-    font-size: 1.25rem;  /* Increase from current 1.1rem */
-}
-
-.research-section p {
-    font-size: 1.25rem;  /* Increase from current 1.1rem */
-    line-height: 1.8;
-}
-
-.publications-list h2 {
-    margin-bottom: 1rem;  /* Reduces space between heading and its following text */
-    margin-top: 2.5rem;   /* Increases space between sections */
-}
-
-.publications-list h2:first-child {
-    margin-top: 0;        /* Removes extra top margin from first heading */
-}
-
-.publications-list li {
-    margin-bottom: 1rem;  /* Consistent spacing between list items */
-    font-size: 1.25em;
-}
-
-.publications-list ul {
-    margin-top: 0;        /* Removes default top margin from ul */
-    margin-bottom: 0;     /* Removes default bottom margin from ul */
-    list-style-type: none;
-    padding-left: 0;
-}
-
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            color: var(--text-color);
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            margin-top: 0;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .publications p {
-            margin-bottom: 1rem;
-            font-size: 1.5em;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        nav a.active {
-            color: var(--primary-color);
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .hamburger .line {
-            width: 25px;
-            height: 2px;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
-        }
+                        nav a:hover {
+                            color: var(--primary-color);
+                        }
 
 
 
-        @media (max-width: 1000px) {
-            .profile {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 2rem;
-            }
+                        .content {
+                            max-width: 1200px;
+                            margin: 0 5%;
+                            padding: 1rem 5%;
+                            opacity: 0;
+                            transition: opacity 0.5s;
+                        }
 
-            .profile-image {
-                width: 200px;
-                height: 300px;
-            }
+                        .content.active {
+                            opacity: 1;
+                        }
 
-            .contact-item {
-                justify-content: center;
-                text-align: left;
-            }
-            .site-subtitle {
-                text-align: center;
-            }
+                        .section {
+                            display: none;
+                        }
 
-            .profile-info {
-                /* align-items: center; */
-                text-align: left;
-            }
-            .hamburger {
-                display: flex;
-            }
+                        .section.active {
+                            display: block;
+                        }
 
-            nav {
-                display: none;
-                position: absolute;
-                top: 80px;
-                right: 0;
-                background: rgb(245, 245, 243);
-                flex-direction: column;
+                        .profile {
+                    display: flex;
+                    gap: 4rem;
+                    margin-bottom: 2rem;
+                }
+
+                .profile-image {
+                width: 275px; /* Adjust size as needed */
+                height: 400px;
+                border-radius: 75%;
+                overflow: hidden;
+                object-fit: cover;
+                flex-shrink: 0; /* Prevents image from shrinking */
+                margin-top: 1em;
+                }
+
+                .profile-image img {
                 width: 100%;
-                text-align: center;
-                padding: 20px 0;
-                gap: 1rem;
-            }
+                height: 100%;
+                object-fit: cover;
+                }
 
-            nav.show {
-                display: flex;
-            }
+                .contact-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin: 0.5rem 0;
+                }
 
-            .header {
-                position: relative;
-            }
-        }
-        .education-section {
-            margin-top: 2rem;
-        }
+                .research-section {
+                    margin-top: 1rem;
+                    font-size: 1.25rem;  /* Increase from current 1.1rem */
+                }
 
-        .education-section h3 {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
+                .research-section p {
+                    font-size: 1.25rem;  /* Increase from current 1.1rem */
+                    line-height: 1.8;
+                }
 
-        .education-section ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+                .publications-list h2 {
+                    margin-bottom: 1rem;  /* Reduces space between heading and its following text */
+                    margin-top: 2.5rem;   /* Increases space between sections */
+                }
 
-        .education-section li {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            line-height: 1;
-        }
-        .profile-reverse {
-            display: flex;
-            gap: 4rem;
-            margin-bottom: 2rem;
-            flex-direction: row-reverse;  /* This puts the image on the right */
-        }
+                .publications-list h2:first-child {
+                    margin-top: 0;        /* Removes extra top margin from first heading */
+                }
 
-        .section-divider {
-            margin: 3rem auto;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-        }
+                .publications-list li {
+                    margin-bottom: 1rem;  /* Consistent spacing between list items */
+                    font-size: 1.25em;
+                }
 
-        /* Or for a more decorative divider */
-        .section-divider-fancy {
-            text-align: center;
-            margin: 3rem auto;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
+                .publications-list ul {
+                    margin-top: 0;        /* Removes default top margin from ul */
+                    margin-bottom: 0;     /* Removes default bottom margin from ul */
+                    list-style-type: none;
+                    padding-left: 0;
+                }
 
-          
+
+                        h1 {
+                            font-size: 2.5rem;
+                            font-weight: 400;
+                            margin-bottom: 2rem;
+                            color: var(--text-color);
+                        }
+
+                        h2 {
+                            font-size: 2rem;
+                            font-weight: 400;
+                            margin-bottom: 1.5rem;
+                            color: var(--text-color);
+                            margin-top: 0;
+                        }
+
+                        p {
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            margin-bottom: 1.5rem;
+                        }
+
+                        a {
+                            color: var(--link-color);
+                            text-decoration: none;
+                        }
+
+                        a:hover {
+                            color: var(--primary-color);
+                            text-decoration: none;
+                        }
+
+                        .publications p {
+                            margin-bottom: 1rem;
+                            font-size: 1.5em;
+                        }
+
+                        nav {
+                            display: flex;
+                            gap: 2rem;
+                        }
+
+                        nav a {
+                            color: var(--text-color);
+                            text-decoration: none;
+                            font-size: 1rem;
+                            transition: color 0.3s;
+                            cursor: pointer;
+                        }
+
+                        nav a.active {
+                            color: var(--primary-color);
+                        }
+
+                        nav a:hover {
+                            color: var(--primary-color);
+                        }
+
+                        .hamburger {
+                            display: none;
+                            flex-direction: column;
+                            gap: 6px;
+                            cursor: pointer;
+                            padding: 10px;
+                        }
+
+                        .hamburger .line {
+                            width: 25px;
+                            height: 2px;
+                            background-color: var(--text-color);
+                            transition: all 0.3s ease;
+                        }
+
+
+
+                        @media (max-width: 1000px) {
+                            .profile {
+                                flex-direction: column;
+                                align-items: center;
+                                text-align: center;
+                                gap: 2rem;
+                            }
+
+                            .profile-image {
+                                width: 200px;
+                                height: 300px;
+                            }
+
+                            .contact-item {
+                                justify-content: center;
+                                text-align: left;
+                            }
+                            .site-subtitle {
+                                text-align: center;
+                            }
+
+                            .profile-info {
+                                /* align-items: center; */
+                                text-align: left;
+                            }
+                            .hamburger {
+                                display: flex;
+                            }
+
+                            nav {
+                                display: none;
+                                position: absolute;
+                                top: 80px;
+                                right: 0;
+                                background: rgb(245, 245, 243);
+                                flex-direction: column;
+                                width: 100%;
+                                text-align: center;
+                                padding: 20px 0;
+                                gap: 1rem;
+                            }
+
+                            nav.show {
+                                display: flex;
+                            }
+
+                            .header {
+                                position: relative;
+                            }
+                        }
+                        .education-section {
+                            margin-top: 2rem;
+                        }
+
+                        .education-section h3 {
+                            font-size: 1rem;
+                            font-weight: 400;
+                            margin-bottom: 1rem;
+                        }
+
+                        .education-section ul {
+                            list-style-type: none;
+                            padding-left: 0;
+                        }
+
+                        .education-section li {
+                            font-size: 1rem;
+                            margin-bottom: 0.75rem;
+                            line-height: 1;
+                        }
+                        .profile-reverse {
+                            display: flex;
+                            gap: 4rem;
+                            margin-bottom: 2rem;
+                            flex-direction: row-reverse;  /* This puts the image on the right */
+                        }
+
+                        .section-divider {
+                            margin: 3rem auto;
+                            width: 80%;
+                            height: 1px;
+                            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+                        }
+
+                        /* Or for a more decorative divider */
+                        .section-divider-fancy {
+                            text-align: center;
+                            margin: 3rem auto;
+                            color: var(--primary-color);
+                            font-size: 1.5rem;
+                        }
+                        /* Counter start */
+                        .visitor-counter {
+                            text-align: center;
+                            margin: 3rem auto;
+                            padding: 20px;
+                            width: fit-content;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 0.5rem;
+                        }
+
+                        .counter-display {
+                            background: black;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            font-family: monospace;
+                            display: flex;
+                            gap: 4px;
+                        }
+
+                        .counter-digit {
+                            color: #00ff00;
+                            font-size: 2rem;
+                            min-width: 1.2em;
+                            text-align: center;
+                            text-shadow: 0 0 10px #00ff00;
+                        }
+                        /* Counter end */
            
 </style>
 </head>
+
 <body>
     <header class="header">
         <a href="#home" onclick="showSection('home')" class="site-title">Dr. Ursula Trigos-Raczkowski</a>
@@ -365,7 +393,20 @@
                             <p>While the methodologies I employ are broadly applicable, my current research is specifically directed towards understanding tropical forests, with a focus on the complex dynamics within tropical tree systems which have applications to the climate crisis. </p>
                         </div>
                     </div>
+                </div>
             </div>
+            <!-- counter -->
+            <!-- <div class="visitor-counter">
+                <span>You are visitor number:</span>
+                <div class="counter-display">
+                    <span class="counter-digit">0</span>
+                    <span class="counter-digit">0</span>
+                    <span class="counter-digit">0</span>
+                    <span class="counter-digit">0</span>
+                    <span class="counter-digit">0</span>
+                </div>
+            </div> -->
+            <!-- counter end -->
         </section>
 
         <section id="publications" class="section">
@@ -375,11 +416,11 @@
                     <div class="publications-list">
                         <ul>
                             <h2>Publications</h2>
-                            <li><a href="https://doi.org/10.1101/2023.11.02.565332">Disturbance-Generated Competitive Coexistence</a> <em>(in submission)</em></li>
-                            <li>For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=ENRyR3EAAAAJ&hl=en&authuser=1">Google Scholar</a> profile.</li>
+                            <li><a href="https://doi.org/10.1101/2023.11.02.565332">Disturbance-Generated Competitive Coexistence</a> <em>(in submission).</em></li>
+                            <li>For a complete list of publications, visit my <a href="https://scholar.google.com/citations?user=ENRyR3EAAAAJ&hl=en&authuser=1">Google Scholar</a> page.</li>
                             <div class="section-divider"></div>
                             <h2>Work in Progress</h2>
-                            <li>A Spatially-Explicit Stochastic Model for the Gulf Coast Ticks <em>(in progress)</em></li>
+                            <li>A Spatially-Explicit Stochastic Model for the Gulf Coast Ticks <em>(in progress).</em></li>
                         </ul>
                     </div>
                 </div>
@@ -563,7 +604,7 @@
                 nav.classList.remove('show');
             }
         });
-
+            
     </script>
 
 </body>
