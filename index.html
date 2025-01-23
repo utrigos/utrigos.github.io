@@ -6,8 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪿</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪴</text></svg>">
     <title>Dr. Trigos-Raczkowski</title>
+
     <style>
         :root {
             --primary-color: rgb(255, 198, 91);
@@ -51,11 +52,6 @@
 
         .site-title:hover {
             opacity: 0.8;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
         }
 
         nav a {
@@ -123,10 +119,33 @@
 
 .research-section {
     margin-top: 1rem;
+    font-size: 1.25rem;  /* Increase from current 1.1rem */
 }
 
-.publications-list {
-    margin-left: 10%;
+.research-section p {
+    font-size: 1.25rem;  /* Increase from current 1.1rem */
+    line-height: 1.8;
+}
+
+.publications-list h2 {
+    margin-bottom: 1rem;  /* Reduces space between heading and its following text */
+    margin-top: 2.5rem;   /* Increases space between sections */
+}
+
+.publications-list h2:first-child {
+    margin-top: 0;        /* Removes extra top margin from first heading */
+}
+
+.publications-list li {
+    margin-bottom: 1rem;  /* Consistent spacing between list items */
+    font-size: 1.25em;
+}
+
+.publications-list ul {
+    margin-top: 0;        /* Removes default top margin from ul */
+    margin-bottom: 0;     /* Removes default bottom margin from ul */
+    list-style-type: none;
+    padding-left: 0;
 }
 
 
@@ -163,6 +182,7 @@
 
         .publications p {
             margin-bottom: 1rem;
+            font-size: 1.5em;
         }
 
         nav {
@@ -253,19 +273,40 @@
                 position: relative;
             }
         }
+        .education-section {
+            margin-top: 2rem;
+        }
+
+        .education-section h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .education-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .education-section li {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1;
+        }
 </style>
 </head>
 <body>
     <header class="header">
-        <a onclick="showSection('home')" class="site-title">Dr. Ursula Trigos-Raczkowski</a>
+        <a href="#home" onclick="showSection('home')" class="site-title">Dr. Ursula Trigos-Raczkowski</a>
         <div class="hamburger" onclick="toggleMenu()">
             <div class="line"></div>
             <div class="line"></div>
         </div>
         <nav>
-            <a onclick="showSection('publications')">Publications and Ongoing Work</a>
-            <a onclick="showSection('cv')">Curriculum Vitae</a>
-            <a onclick="showSection('teaching')">Teaching</a>
+            <a href="#publications" onclick="showSection('publications')">Publications and Ongoing Work</a>
+            <a href="#cv" onclick="showSection('cv')">Curriculum Vitae</a>
+            <a href="#teaching" onclick="showSection('teaching')">Teaching</a>
+            <a href="#about" onclick="showSection('about')">About Me</a>
         </nav>
     </header>
 
@@ -306,12 +347,15 @@
         <section id="publications" class="section">
             <div class="content">
                 <div class="profile">
-                    <img src="./assets/photos/UTRHike.png" alt="Profile" class="profile-image">
+                    <img src="./assets/photos/UTRHike.jpeg" alt="Profile" class="profile-image">
                     <div class="publications-list">
                         <ul>
-                            <li><a href="https://doi.org/10.1101/2023.11.02.565332">Disturbance-Generated Competitive Coexistence</a> (in progress)</li>
-                            <li>A Spatially-Explicit Stochastic Model for the Gulf Coast Ticks (in progress)</li>
+                            <h2>Publications</h2>
+                            <li><a href="https://doi.org/10.1101/2023.11.02.565332">Disturbance-Generated Competitive Coexistence</a> <em>(in submission)</em></li>
                             <li>For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=ENRyR3EAAAAJ&hl=en&authuser=1">Google Scholar</a> profile.</li>
+                      
+                            <h2>Work in Progress</h2>
+                            <li>A Spatially-Explicit Stochastic Model for the Gulf Coast Ticks <em>(in progress)</em></li>
                         </ul>
                     </div>
                 </div>
@@ -340,6 +384,18 @@
             </main>
         </section>
         
+        <section id="about" class="section">
+            <div class="content">
+                <div class="education-section">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Ph.D. in Applied and Interdisciplinary Mathematics, University of Michigan, Ann Arbor, 2023</li>
+                        <li>M.S. in Mathematics, University of Michigan, Ann Arbor, 2018</li>
+                        <li>B.S. in Mathematics, California State University Bakersfield, 2016</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -349,6 +405,9 @@
         }
     
         function showSection(sectionId) {
+            // Update URL hash without scrolling
+            history.pushState(null, null, `#${sectionId}`);
+    
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
@@ -371,7 +430,8 @@
                 const sectionMap = {
                     'publications': 'Publications and Ongoing Work',
                     'cv': 'Curriculum Vitae',
-                    'teaching': 'Teaching'
+                    'teaching': 'Teaching',
+                    'about': 'About Me'
                 };
                 if (link.textContent === sectionMap[sectionId]) {
                     link.classList.add('active');
@@ -384,9 +444,17 @@
             }
         }
     
-        // Handle initial load
+        // Handle initial load and refresh
         document.addEventListener('DOMContentLoaded', () => {
-            showSection('home');
+            // Get the hash from URL or default to 'home'
+            const hash = window.location.hash.slice(1) || 'home';
+            showSection(hash);
+        });
+    
+        // Handle hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.slice(1) || 'home';
+            showSection(hash);
         });
     
         // Close menu when clicking outside
@@ -400,6 +468,6 @@
                 nav.classList.remove('show');
             }
         });
-        </script>
+    </script>
 </body>
 </html>
