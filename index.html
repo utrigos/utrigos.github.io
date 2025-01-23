@@ -315,33 +315,10 @@
                             font-size: 1.5rem;
                         }
                         /* Counter start */
-                        .visitor-counter {
-                            text-align: center;
-                            margin: 3rem auto;
-                            padding: 20px;
-                            width: fit-content;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            gap: 0.5rem;
-                        }
-
-                        .counter-display {
-                            background: black;
-                            padding: 10px 20px;
-                            border-radius: 8px;
-                            font-family: monospace;
-                            display: flex;
-                            gap: 4px;
-                        }
-
-                        .counter-digit {
-                            color: #00ff00;
-                            font-size: 2rem;
-                            min-width: 1.2em;
-                            text-align: center;
-                            text-shadow: 0 0 10px #00ff00;
-                        }
+                        .text-neon-green {
+                            color: #37d67a;
+                            text-shadow: 0 0 10px #37d67a;
+                            }
                         /* Counter end */
            
 </style>
@@ -361,8 +338,7 @@
             <a href="#cv" onclick="showSection('cv')">Curriculum Vitae</a>
         </nav>
     </header>
-
-
+    
     <main>
         <section id="home" class="section active">
             <div class="content">
@@ -395,18 +371,18 @@
                     </div>
                 </div>
             </div>
-            <!-- counter -->
-            <!-- <div class="visitor-counter">
-                <span>You are visitor number:</span>
-                <div class="counter-display">
-                    <span class="counter-digit">0</span>
-                    <span class="counter-digit">0</span>
-                    <span class="counter-digit">0</span>
-                    <span class="counter-digit">0</span>
-                    <span class="counter-digit">0</span>
-                </div>
-            </div> -->
-            <!-- counter end -->
+            <a href="https://visitorbadge.io/status?path=https%3A%2F%2Futrigos.github.io%2F%23home"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Futrigos.github.io%2F%23home&label=You%20are%20visitor%20&labelColor=%2337d67a&countColor=%23555555&style=flat-square" /></a><!-- counter -->
+            <!-- counter start -->
+            <head>
+                <meta charset="UTF-8">
+                <title>Visitor Counter</title>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+                <script src="https://cdn.tailwindcss.com"></script>
+            </head>
+            <div id="root"></div>
+    <!-- counter end -->
         </section>
 
         <section id="publications" class="section">
@@ -606,6 +582,43 @@
         });
             
     </script>
+            <!-- COUNTER PULL -->
+            <script type="text/babel">
+                const VisitorCounter = () => {
+                    const [visitorCount, setVisitorCount] = React.useState(0);
+        
+                    React.useEffect(() => {
+                        const count = localStorage.getItem('visitorCount') || 3;
+                        setVisitorCount(Number(count));
+        
+                        const newCount = Number(count) + 1;
+                        localStorage.setItem('visitorCount', newCount);
+                    }, []);
+        
+                    const digits = visitorCount.toString().padStart(6, '0').split('').map(Number);
+        
+                    return (
+                        <div className="flex flex-col items-center justify-center min-h-screen">
+                            <div className="text-2xl text-green-400 mb-4">
+                                You are visitor number
+                            </div>
+                            <div className="flex">
+                                {digits.map((digit, index) => (
+                                    <div 
+                                        key={index} 
+                                        className="bg-black text-green-400 p-2 rounded-lg inline-block mx-1 text-4xl font-mono"
+                                    >
+                                        {digit}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                };
+        
+                ReactDOM.render(<VisitorCounter />, document.getElementById('root'));
+            </script>
+        <!-- COUNTER PULL END -->
 
 </body>
 </html>
