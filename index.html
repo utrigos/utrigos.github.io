@@ -314,14 +314,9 @@
                             color: var(--primary-color);
                             font-size: 1.5rem;
                         }
-                        /* Counter start */
-                        .text-neon-green {
-                            color: #37d67a;
-                            text-shadow: 0 0 10px #37d67a;
-                            }
-                        /* Counter end */
            
 </style>
+
 </head>
 
 <body>
@@ -368,21 +363,14 @@
                             <p>These models provide insights into the mechanisms driving competitive coexistence, the impact of competition on community structure and diversity, and the implications of biological trade-offs for understanding species interactions.</p>
                             <p>While the methodologies I employ are broadly applicable, my current research is specifically directed towards understanding tropical forests, with a focus on the complex dynamics within tropical tree systems which have applications to the climate crisis. </p>
                         </div>
+
+                                                <!-- counter start -->
+                                                <a href="https://visitorbadge.io/status?path=https%3A%2F%2Futrigos.github.io%2F%23home"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Futrigos.github.io%2F%23home&label=You%20are%20visitor%20&labelColor=%2337d67a&countColor=%23555555&style=flat-square" /></a><!-- counter -->
+                                                <!-- counter end -->
                     </div>
                 </div>
             </div>
-            <a href="https://visitorbadge.io/status?path=https%3A%2F%2Futrigos.github.io%2F%23home"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Futrigos.github.io%2F%23home&label=You%20are%20visitor%20&labelColor=%2337d67a&countColor=%23555555&style=flat-square" /></a><!-- counter -->
-            <!-- counter start -->
-            <head>
-                <meta charset="UTF-8">
-                <title>Visitor Counter</title>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-                <script src="https://cdn.tailwindcss.com"></script>
-            </head>
-            <div id="root"></div>
-    <!-- counter end -->
+
         </section>
 
         <section id="publications" class="section">
@@ -582,43 +570,5 @@
         });
             
     </script>
-            <!-- COUNTER PULL -->
-            <script type="text/babel">
-                const VisitorCounter = () => {
-                    const [visitorCount, setVisitorCount] = React.useState(0);
-        
-                    React.useEffect(() => {
-                        const count = localStorage.getItem('visitorCount') || 3;
-                        setVisitorCount(Number(count));
-        
-                        const newCount = Number(count) + 1;
-                        localStorage.setItem('visitorCount', newCount);
-                    }, []);
-        
-                    const digits = visitorCount.toString().padStart(6, '0').split('').map(Number);
-        
-                    return (
-                        <div className="flex flex-col items-center justify-center min-h-screen">
-                            <div className="text-2xl text-green-400 mb-4">
-                                You are visitor number
-                            </div>
-                            <div className="flex">
-                                {digits.map((digit, index) => (
-                                    <div 
-                                        key={index} 
-                                        className="bg-black text-green-400 p-2 rounded-lg inline-block mx-1 text-4xl font-mono"
-                                    >
-                                        {digit}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    );
-                };
-        
-                ReactDOM.render(<VisitorCounter />, document.getElementById('root'));
-            </script>
-        <!-- COUNTER PULL END -->
-
 </body>
 </html>
