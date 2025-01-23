@@ -427,6 +427,14 @@
                         <div class="digit" data-value="0">0</div>
                     </div>
                 </div>
+                
+                <script>
+                    console.log('Script loaded');
+                    document.addEventListener('DOMContentLoaded', () => {
+                        console.log('DOM loaded - immediate test');
+                        updateVisitorCount();
+                    });
+                </script>
             </div>
         </section>
 
@@ -704,6 +712,31 @@ async function updateVisitorCount() {
         console.error('Error in updateVisitorCount:', error);
     }
 }
+
+async function updateVisitorCount() {
+    console.log('Function called!'); // Basic test
+    try {
+        console.log('About to fetch...');
+        const testResponse = await fetch('https://api.countapi.xyz/hit/test-ursula-site/visits');
+        console.log('Fetch completed:', testResponse);
+        
+        if (!testResponse.ok) {
+            throw new Error(`HTTP error! status: ${testResponse.status}`);
+        }
+        
+        const data = await testResponse.json();
+        console.log('Data received:', data);
+        
+    } catch (error) {
+        console.error('Caught error:', error);
+    }
+}
+
+// Make sure the function is actually being called
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    updateVisitorCount();
+});
 // Debugging the counter end
     </script>
 
