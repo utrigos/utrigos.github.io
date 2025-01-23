@@ -656,6 +656,55 @@ async function updateVisitorCount() {
 
 // Update count when page loads
 document.addEventListener('DOMContentLoaded', updateVisitorCount);
+
+
+// Debugging the counter start
+
+async function updateVisitorCount() {
+    try {
+        console.log('Starting visitor count update...');
+        // First try to get the current count
+        let response = await fetch('https://api.countapi.xyz/get/ursula-website/visits');
+        let data = await response.json();
+        
+        // If the key doesn't exist, create it
+        if (response.status === 404) {
+            console.log('Counter not found, creating new counter...');
+            response = await fetch('https://api.countapi.xyz/create?namespace=ursula-website&key=visits&value=1');
+            data = await response.json();
+        } else {
+            console.log('Counter found, incrementing...');
+            response = await fetch('https://api.countapi.xyz/hit/ursula-website/visits');
+            data = await response.json();
+        }
+
+        console.log('Response data:', data);
+        const count = data.value.toString().padStart(5, '0');
+        console.log('Formatted count:', count);
+
+        // Update each digit
+        const digits = document.querySelectorAll('.digit');
+        console.log('Found digits elements:', digits.length);
+        
+        count.split('').forEach((num, index) => {
+            const digit = digits[index];
+            const oldValue = digit.dataset.value;
+            console.log(`Updating digit ${index} from ${oldValue} to ${num}`);
+            
+            if (oldValue !== num) {
+                digit.style.transform = 'rotateX(-180deg)';
+                setTimeout(() => {
+                    digit.dataset.value = num;
+                    digit.textContent = num;
+                    digit.style.transform = 'rotateX(0)';
+                }, 150);
+            }
+        });
+    } catch (error) {
+        console.error('Error in updateVisitorCount:', error);
+    }
+}
+// Debugging the counter end
     </script>
 
 </body>
