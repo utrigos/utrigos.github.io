@@ -293,6 +293,27 @@
             margin-bottom: 0.75rem;
             line-height: 1;
         }
+        .profile-reverse {
+            display: flex;
+            gap: 4rem;
+            margin-bottom: 2rem;
+            flex-direction: row-reverse;  /* This puts the image on the right */
+        }
+
+        .section-divider {
+            margin: 3rem auto;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+
+        /* Or for a more decorative divider */
+        .section-divider-fancy {
+            text-align: center;
+            margin: 3rem auto;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
 </style>
 </head>
 <body>
@@ -354,7 +375,7 @@
                             <h2>Publications</h2>
                             <li><a href="https://doi.org/10.1101/2023.11.02.565332">Disturbance-Generated Competitive Coexistence</a> <em>(in submission)</em></li>
                             <li>For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=ENRyR3EAAAAJ&hl=en&authuser=1">Google Scholar</a> profile.</li>
-                      
+                            <div class="section-divider"></div>
                             <h2>Work in Progress</h2>
                             <li>A Spatially-Explicit Stochastic Model for the Gulf Coast Ticks <em>(in progress)</em></li>
                         </ul>
@@ -400,16 +421,24 @@
                             students, I strive to create equitable opportunities and inspire the next generation of
                             scholars through outreach, research mentorship, and inclusive pedagogy.
                         </p>
+                    </div>
+                </div>
+
+                    <div class="section-divider"></div>
+                  
+                <div class="profile-reverse">
+                    <img src="./assets/photos/UTRatUT2024.JPG" alt="Teaching" class="profile-image">
+                    <div class="profile-info">
                         <h2>Current Position</h2>
-                        <p>I am currently a Postdoctoral Researcher under the Dean of Ray P. Authement College of Sciences 
-                            at the University of Louisiana at Lafayette. In this role, I focus on advancing my research 
-                            while actively mentoring graduate students. I oversee the progress of five PhD students who are 
-                            at various stages of their academic journeys. This includes working closely with one student at 
-                            the conceptional stage of their research, providing foundational guidance, and helping shape 
-                            the direction of their project. For my other students, with more developed or nearly completed 
-                            dissertations, I offer critical feedback and support to ensure the successful culmination of 
-                            their work. My mentorship aims to foster intellectual growth, encourage academic independence, 
-                            and equip students with the tools necessary to excel in their respective fields as they go on to 
+                        <p>I am currently a Postdoctoral Researcher under the Dean of Ray P. Authement College of Sciences
+                            at the University of Louisiana at Lafayette. In this role, I focus on advancing my research
+                            while actively mentoring graduate students. I oversee the progress of five PhD students who are
+                            at various stages of their academic journeys. This includes working closely with one student at
+                            the conceptional stage of their research, providing foundational guidance, and helping shape
+                            the direction of their project. For my other students, with more developed or nearly completed
+                            dissertations, I offer critical feedback and support to ensure the successful culmination of
+                            their work. My mentorship aims to foster intellectual growth, encourage academic independence,
+                            and equip students with the tools necessary to excel in their respective fields as they go on to
                             academic positions of their own.</p>
                     </div>
                 </div>
