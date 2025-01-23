@@ -314,6 +314,49 @@
             color: var(--primary-color);
             font-size: 1.5rem;
         }
+
+            /* counter start */
+            .visitor-counter {
+                text-align: center;
+                margin: 2rem auto;
+                padding: 10px;
+                width: fit-content;
+            }
+
+            .flip-counter {
+                background: black;
+                padding: 10px 20px;
+                border-radius: 5px;
+                display: inline-flex;
+                gap: 4px;
+            }
+
+            .digit {
+                position: relative;
+                width: 30px;
+                height: 50px;
+                background: black;
+                color: #00ff00;
+                font-family: 'Digital-7', monospace;
+                font-size: 35px;
+                line-height: 50px;
+                text-align: center;
+                border: 1px solid #00ff00;
+                border-radius: 4px;
+                box-shadow: 0 0 10px #00ff00;
+                overflow: hidden;
+            }
+
+            .digit::before {
+                content: attr(data-value);
+                position: absolute;
+                left: 0;
+                width: 100%;
+                opacity: 1;
+                transform-origin: bottom;
+                transition: transform 0.3s ease-in-out;
+            }
+            /* counter end */
 </style>
 </head>
 <body>
@@ -361,6 +404,16 @@
                             <p>These models provide insights into the mechanisms driving competitive coexistence, the impact of competition on community structure and diversity, and the implications of biological trade-offs for understanding species interactions.</p>
                             <p>While the methodologies I employ are broadly applicable, my current research is specifically directed towards understanding tropical forests, with a focus on the complex dynamics within tropical tree systems which have applications to the climate crisis. </p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="visitor-counter">
+                    <div class="flip-counter" id="visitorCount">
+                        <div class="digit" data-value="0">0</div>
+                        <div class="digit" data-value="0">0</div>
+                        <div class="digit" data-value="0">0</div>
+                        <div class="digit" data-value="0">0</div>
+                        <div class="digit" data-value="0">0</div>
                     </div>
                 </div>
             </div>
@@ -562,5 +615,38 @@
             }
         });
     </script>
+    <script>
+        // Visitor counter
+async function updateVisitorCount() {
+    try {
+        // Replace 'your-key' with a unique string for your website
+        const response = await fetch('https://api.countapi.xyz/hit/ursula-website/visits');
+        const data = await response.json();
+        const count = data.value.toString().padStart(5, '0');
+        
+        // Update each digit
+        const digits = document.querySelectorAll('.digit');
+        count.split('').forEach((num, index) => {
+            const digit = digits[index];
+            const oldValue = digit.dataset.value;
+            
+            if (oldValue !== num) {
+                digit.style.transform = 'rotateX(-180deg)';
+                setTimeout(() => {
+                    digit.dataset.value = num;
+                    digit.textContent = num;
+                    digit.style.transform = 'rotateX(0)';
+                }, 150);
+            }
+        });
+    } catch (error) {
+        console.error('Error updating visitor count:', error);
+    }
+}
+
+// Update count when page loads
+document.addEventListener('DOMContentLoaded', updateVisitorCount);
+    </script>
+
 </body>
 </html>
