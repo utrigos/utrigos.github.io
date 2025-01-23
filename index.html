@@ -321,6 +321,14 @@
                 margin: 2rem auto;
                 padding: 10px;
                 width: fit-content;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .visitor-label {
+                color: var(--text-color);
+                font-size: 1.25rem;
             }
 
             .flip-counter {
@@ -358,20 +366,7 @@
             }
             /* counter end */
 
-            .visitor-counter {
-                text-align: center;
-                margin: 2rem auto;
-                padding: 10px;
-                width: fit-content;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .visitor-label {
-                color: var(--text-color);
-                font-size: 1.25rem;
-            }
+           
 </style>
 </head>
 <body>
@@ -559,7 +554,7 @@
                 </div>
             </div>
         </section>
-
+        </main>
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
@@ -630,8 +625,7 @@
                 nav.classList.remove('show');
             }
         });
-    </script>
-    <script>
+
         // Visitor counter
 async function updateVisitorCount() {
     try {
