@@ -563,7 +563,7 @@
             </div>
         </section>
         </main>
-    <script>
+    <script defer>
         function toggleMenu() {
             const nav = document.querySelector('nav');
             nav.classList.toggle('show');
@@ -634,110 +634,45 @@
             }
         });
 
-        // Visitor counter
-async function updateVisitorCount() {
+        async function updateVisitorCount() {
+    console.log('Function called!');
     try {
-        // Replace 'your-key' with a unique string for your website
-        const response = await fetch('https://api.countapi.xyz/hit/ursula-website/visits');
+        // Using a different API endpoint
+        const response = await fetch('https://api.countapi.xyz/hit/ursula-tr-website/test');
+        console.log('Response:', response);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        const count = data.value.toString().padStart(5, '0');
+        console.log('Data:', data);
         
-        // Update each digit
-        const digits = document.querySelectorAll('.digit');
-        count.split('').forEach((num, index) => {
-            const digit = digits[index];
-            const oldValue = digit.dataset.value;
+        if (data && data.value) {
+            const count = data.value.toString().padStart(5, '0');
+            console.log('Count:', count);
             
-            if (oldValue !== num) {
-                digit.style.transform = 'rotateX(-180deg)';
-                setTimeout(() => {
-                    digit.dataset.value = num;
-                    digit.textContent = num;
-                    digit.style.transform = 'rotateX(0)';
-                }, 150);
-            }
-        });
+            // Update display
+            const digits = document.querySelectorAll('.digit');
+            count.split('').forEach((num, index) => {
+                digits[index].textContent = num;
+                digits[index].dataset.value = num;
+            });
+        }
     } catch (error) {
-        console.error('Error updating visitor count:', error);
+        console.error('Error:', error);
+        // On error, at least show some numbers
+        const digits = document.querySelectorAll('.digit');
+        digits.forEach(digit => {
+            digit.textContent = '0';
+            digit.dataset.value = '0';
+        });
     }
 }
 
-// Update count when page loads
+// Call the function immediately and when DOM loads
+updateVisitorCount();
 document.addEventListener('DOMContentLoaded', updateVisitorCount);
-
-
-// Debugging the counter start
-
-async function updateVisitorCount() {
-    try {
-        console.log('Starting visitor count update...');
-        // First try to get the current count
-        let response = await fetch('https://api.countapi.xyz/get/ursula-website/visits');
-        let data = await response.json();
-        
-        // If the key doesn't exist, create it
-        if (response.status === 404) {
-            console.log('Counter not found, creating new counter...');
-            response = await fetch('https://api.countapi.xyz/create?namespace=ursula-website&key=visits&value=1');
-            data = await response.json();
-        } else {
-            console.log('Counter found, incrementing...');
-            response = await fetch('https://api.countapi.xyz/hit/ursula-website/visits');
-            data = await response.json();
-        }
-
-        console.log('Response data:', data);
-        const count = data.value.toString().padStart(5, '0');
-        console.log('Formatted count:', count);
-
-        // Update each digit
-        const digits = document.querySelectorAll('.digit');
-        console.log('Found digits elements:', digits.length);
-        
-        count.split('').forEach((num, index) => {
-            const digit = digits[index];
-            const oldValue = digit.dataset.value;
-            console.log(`Updating digit ${index} from ${oldValue} to ${num}`);
-            
-            if (oldValue !== num) {
-                digit.style.transform = 'rotateX(-180deg)';
-                setTimeout(() => {
-                    digit.dataset.value = num;
-                    digit.textContent = num;
-                    digit.style.transform = 'rotateX(0)';
-                }, 150);
-            }
-        });
-    } catch (error) {
-        console.error('Error in updateVisitorCount:', error);
-    }
-}
-
-async function updateVisitorCount() {
-    console.log('Function called!'); // Basic test
-    try {
-        console.log('About to fetch...');
-        const testResponse = await fetch('https://api.countapi.xyz/hit/test-ursula-site/visits');
-        console.log('Fetch completed:', testResponse);
-        
-        if (!testResponse.ok) {
-            throw new Error(`HTTP error! status: ${testResponse.status}`);
-        }
-        
-        const data = await testResponse.json();
-        console.log('Data received:', data);
-        
-    } catch (error) {
-        console.error('Caught error:', error);
-    }
-}
-
-// Make sure the function is actually being called
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded');
-    updateVisitorCount();
-});
-// Debugging the counter end
     </script>
 
 </body>
