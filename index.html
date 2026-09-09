@@ -381,7 +381,7 @@
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <a href="mailto:utrigos@umich.edu">uxt00880@vsc.edu</a>
+                                <a href="mailto:uxt00880@vsc.edu">uxt00880@vsc.edu</a>
                             </div>
                         </div>
                         <div class="research-section">
@@ -515,7 +515,7 @@
                         <p>
                             Tech Math I covers algebra and trigonometry for technical programs: algebraic expressions, geometry,
                             right-triangle trigonometry, systems of linear equations, factoring and algebraic fractions, quadratic
-                            equations, exponents and radicals, and exponential and logarithmic functions; . Tech Math II picks up 
+                            equations, exponents and radicals, and exponential and logarithmic functions. Tech Math II picks up 
                             where Tech Math I ends and covers the math needed for Engineering Technology and Calculus: vectors and 
                             oblique triangles, complex numbers, trigonometric functions of any angle, trigonometric identities and 
                             equations, and analytic geometry (Chapters 3, 8–12, 14, 20, and 21 of the same text). We move quickly, 
@@ -693,6 +693,12 @@
 
     </script>
     <script data-goatcounter="https://utrigos.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+            async src="//gc.zgo.at/count.js"></script>
+            <script>
+    fetch('https://utrigos.goatcounter.com/counter/TOTAL.json')
+        .then(r => r.json())
+        .then(d => { document.getElementById('visitor-count').textContent = d.count; })
+        .catch(() => { document.querySelector('.visitor-count').style.display = 'none'; });
+    </script>
 </body>
 </html>
