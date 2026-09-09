@@ -334,7 +334,7 @@
                         .resource-list li::before { content: "•"; color: var(--primary-color); display: inline-block; width: 1.25rem; text-indent: 0; }
                         .textbook-cover { width: 180px; display: block; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(10, 71, 51, 0.25); }
                         .resources-intro { font-size: 1.25rem; line-height: 1.8; }
-                        .visitor-count { font-size: 1rem; color: var(--primary-color); margin-top: 1rem; }
+                        .visitor-count { font-size: 1rem; color: var(--primary-color); width: fit-content; margin: 2rem auto 0; padding: 0.4rem 1rem; border: 1px solid var(--primary-color); border-radius: 4px; }
                         @media (max-width: 1000px) {
                             .course-block { flex-direction: column; gap: 1.5rem; padding: 0 20px; }
                             .course-info { flex: none; }
@@ -390,10 +390,10 @@
                             <p>These models provide insights into the mechanisms driving competitive coexistence, the impact of competition on community structure and diversity, and the implications of biological trade-offs for understanding species interactions.</p>
                             <p>While the methodologies I employ are broadly applicable, my current research is specifically directed towards understanding tropical forests, with a focus on the complex dynamics within tropical tree systems which have applications to the climate crisis. </p>
                         </div>
-                                                <!-- counter start -->
-                                                   <p class="visitor-count">You are visitor <span id="visitor-count">…</span></p>
-                                                <!-- counter end -->
                     </div>
+                     <!-- counter start -->
+                        <p class="visitor-count">You are visitor <span id="visitor-count">…</span></p>
+                     <!-- counter end -->
                 </div>
             </div>
 
